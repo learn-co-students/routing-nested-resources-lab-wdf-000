@@ -4,7 +4,11 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    begin
+      @artist = Artist.find(params[:id])
+    rescue
+      redirect_to artists_path
+    end
   end
 
   def new
