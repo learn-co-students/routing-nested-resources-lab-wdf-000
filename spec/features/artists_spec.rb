@@ -1,5 +1,4 @@
 describe "artists", type: :feature do
-
   before do
     Artist.destroy_all
     Song.destroy_all
@@ -12,7 +11,6 @@ describe "artists", type: :feature do
       visit artists_path
       expect(page).to have_link(@artist.name, href: artist_songs_path(@artist))
     end
-
   end
 
   describe "GET /artists/id" do
