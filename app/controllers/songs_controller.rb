@@ -8,7 +8,11 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+    if params[:artist_id]
+      @song = Song.find(params[:artist_id])
+    else
+      @song = Song.find(params[:id])
+    end
   end
 
   def new
