@@ -1,6 +1,13 @@
+<% if flash[:alert] %>
+<%= flash[:alert] %>
+<% end %>
 <h1>Artists</h1>
 <ul>
-  <% @artists.each do |artist| %>
-    <li><%= link_to artist.name, artist_path(artist) %></li>
-  <% end %>
+    <% @artists.each do |artist| %>
+      <li><%= link_to artist.name, artist_path(artist) %></li>
+      <li><%= link_to artist.name, artist_songs_path(artist)%></li>
+    <% end %>
+
+    <h1> Artist not found </h1>
+
 </ul>
