@@ -1,6 +1,10 @@
-<h1><%= @artist.name %></h1>
-<ul>
-  <% @artist.songs.each do |song| %>
-    <li><%= song.title %></li>
-  <% end %>
-</ul>
+<% if @artist %>
+  <h1><%= @artist.name %></h1>
+  <ul>
+    <% @artist.songs.each do |song| %>
+      <li><%= link_to song.title, artist_song_path(@artist, song) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= link_to "Add Artist", edit_song_path(@song) %>
+<% end %>
